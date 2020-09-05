@@ -8,7 +8,7 @@ Scenario: Perform Login of EA Application site
 	Given I launch the application
 	And I click login link
 	And I enter the following details
-		| Username | Password |
+		| UserName | Password |
 		| admin    | password |
 	When I click button
 	Then I should see Employee details link

@@ -109,7 +109,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Username",
+                            "UserName",
                             "Password"});
                 table1.AddRow(new string[] {
                             "admin",

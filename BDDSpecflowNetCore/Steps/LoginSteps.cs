@@ -1,4 +1,5 @@
 ﻿using BDDSpecflowNetCore.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -39,13 +40,13 @@ namespace BDDSpecflowNetCore.Steps
         [When(@"I click button")]
         public void WhenIClickButton()
         {
-            ScenarioContext.Current.Pending();
+            loginPage.ClickLoginButton();
         }
 
         [Then(@"I should see Employee details link")]
         public void ThenIShouldSeeEmployeeDetailsLink()
         {
-            ScenarioContext.Current.Pending();
+            Assert.That(loginPage.IsEmployeeDetailsExist(), Is.True);
         }
 
     }
