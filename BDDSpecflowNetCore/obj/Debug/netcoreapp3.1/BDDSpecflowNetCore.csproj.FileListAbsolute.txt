@@ -107,3 +107,4 @@ C:\Temp\VSProjects\BDDSpecflowNetCore\BDDSpecflowNetCore\obj\Debug\netcoreapp3.1
 C:\Temp\VSProjects\BDDSpecflowNetCore\BDDSpecflowNetCore\obj\Debug\netcoreapp3.1\BDDSpecflowNetCore.dll
 C:\Temp\VSProjects\BDDSpecflowNetCore\BDDSpecflowNetCore\obj\Debug\netcoreapp3.1\BDDSpecflowNetCore.pdb
 C:\Temp\VSProjects\BDDSpecflowNetCore\BDDSpecflowNetCore\obj\Debug\netcoreapp3.1\BDDSpecflowNetCore.genruntimeconfig.cache
+C:\Temp\VSProjects\BDDSpecflowNetCore\BDDSpecflowNetCore\obj\Debug\netcoreapp3.1\BDDSpecflowNetCore.csprojAssemblyReference.cache
