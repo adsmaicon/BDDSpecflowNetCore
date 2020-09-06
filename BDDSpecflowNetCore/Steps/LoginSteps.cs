@@ -18,7 +18,11 @@ namespace BDDSpecflowNetCore.Steps
         [Given(@"I launch the application")]
         public void GivenILaunchTheApplication()
         {
-            IWebDriver webDriver = new ChromeDriver();
+            ChromeOptions optionsChr = new ChromeOptions();
+            optionsChr.AddArgument("--headless");
+
+            IWebDriver webDriver = new ChromeDriver(optionsChr);
+            
             webDriver.Navigate().GoToUrl("http://eaapp.somee.com/");
             loginPage = new LoginPage(webDriver);
         }
