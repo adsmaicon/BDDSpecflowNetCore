@@ -1,33 +1,35 @@
-name: build
+name: .NET Core
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build:
-    name: ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ macos-latest, ubuntu-latest, windows-latest ]
+    runs-on: ubuntu-latest
 
     steps:
-
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup .NET Core SDK
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
-
-    - name: Build and Test
-      shell: pwsh
-      run: dotnet test
-      env:
-        DOTNET_CLI_TELEMETRY_OPTOUT: true
-        DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-        NUGET_XMLDOC_MODE: skip
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+    
+    - uses: actions/checkout@master
+    - uses: nanasess/setup-chromedriver@master
+      with:
+        # Optional: do not specify to match Chrome's version
+        chromedriver-version: '77.0.3865.40'
+    - run: |
+        export DISPLAY=:99
+        chromedriver --url-base=/wd/hub &
+        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
